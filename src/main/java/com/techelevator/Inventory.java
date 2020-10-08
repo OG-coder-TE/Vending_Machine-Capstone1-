@@ -1,36 +1,30 @@
 package com.techelevator;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
-
-
-public class Product extends Vending_Machine {
-	
-	
+public class Inventory {
 
 	//Instance Variables
-	private Map<String, String> selectProductMap = new HashMap<>();
+	
+	
+	
 	
 	//Constructor
-	public Product(Map<String, String> selectProductMap) {
-		this.selectProductMap = selectProductMap;
-		
-	}
 	
-	//Method
-	public void callMap() {
-		
-		
-	}
 	
+	
+	//Methods
+	
+	//public int productWithdraw() {
+		
+		
+//	}
+	
+	
+	//Getters
 	
 	
 	
 }
+
 //A1|Potato Crisps|3.05|Chip
 //A2|Stackers|1.45|Chip
 //A3|Grain Waves|2.75|Chip

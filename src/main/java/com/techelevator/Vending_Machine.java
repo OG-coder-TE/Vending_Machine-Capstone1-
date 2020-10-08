@@ -2,6 +2,8 @@ package com.techelevator;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Vending_Machine {	
@@ -14,11 +16,11 @@ public class Vending_Machine {
 		File inputFile = new File("vendingmachine.csv");
 
 		System.out.println("(1) Display Vending Machine Item");
-		System.out.println("(2) Select Product");
+		System.out.println("(2) Purchase");
 		System.out.println("(3) Exit");
 		
 		String userInput = input.nextLine();	//Option
-		
+		//Listing all of the items **Need to add quantity remaining
 		if(userInput.equals("1")) {
 			
 			try(Scanner fileScanner = new Scanner(inputFile)) {
@@ -38,26 +40,74 @@ public class Vending_Machine {
 			}
 			
 		} if(userInput.equals("2")) {
-			System.out.println("(1) Feed Money");
-			System.out.println("(2) Select Product");
-			System.out.println("(3) Finish Transaction");
 			
-			String submenuSelection = input.nextLine();
+			boolean returnSubmenu = false;
 			
-			if(submenuSelection.equals("1")) {
+			int addMoney = 0;
+			//Submenu Options
+			while(!returnSubmenu) {
+				System.out.println("(1) Feed Money");
+				System.out.println("(2) Select Product");
+				System.out.println("(3) Finish Transaction");
+			
+				String submenuSelection = input.nextLine();
+			
+				//Feeding the Machine Section
+				if(submenuSelection.equals("1")) {
 				
-				System.out.println("How much money will you feed me?");
-				String moneyFeed = input.nextLine();
-				int intMoneyFeed =  Integer.parseInt(moneyFeed);		
+					System.out.println("How much money will you feed me?");
+					String moneyFeed = input.nextLine();
+					int intMoneyFeed =  Integer.parseInt(moneyFeed);		
 				
-				Currency enterMoney = new Currency(intMoneyFeed, 0, 0, 0, 0);
+					Currency enterMoney = new Currency(intMoneyFeed, 0, 0, 0, 0);
+					
+					
+					enterMoney.feedMoney(intMoneyFeed);
+					
+					addMoney += enterMoney.feedMoney(intMoneyFeed);
 				
-				enterMoney.feedMoney(intMoneyFeed);
+					System.out.println("Your total is: " + addMoney);
+					System.out.println("Cha-Ching - Yum!");
 				
-				System.out.println("Your total is: " + enterMoney.feedMoney(intMoneyFeed));
-				System.out.println("Cha-Ching - Yum!");
+					returnSubmenu = false;
 				
+				}
+				
+				if(submenuSelection.equals("2")) {
+					
+					try(Scanner fileScanner = new Scanner(inputFile)) {
+						while(fileScanner.hasNextLine()) {
+							String line = fileScanner.nextLine();
+							
+							//Splitting up each line of the input file
+							String[] productDetails = line.split("\\|");
+							
+							//Display the location, item name, and item price to user
+							String productForDisplay = productDetails[0] + " " + productDetails[1] + " " + productDetails[2];
+							System.out.println(productForDisplay);
+							
+							//Setting up to import into Map
+							String locationPriceForKey = productDetails[0] + " " + productDetails[1];
+							String priceForValue = productDetails[2];
+							
+							Map<String, String> displayMap = new HashMap<>();
+							
+							displayMap.put(locationPriceForKey, priceForValue);
+							
+							
+							
+						}
+						
+						
+					} catch(FileNotFoundException e) {
+						System.out.println("There is NO such file.");
+						
+					}
+					
+				}
+					
 			}
+				
 			
 		}
 		
