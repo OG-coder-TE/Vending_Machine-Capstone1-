@@ -22,11 +22,6 @@ public abstract class Product {
 	
 	
 	
-	
-	
-	
-	
-	
 //Getters
 	public String getName() {
 		return name;
