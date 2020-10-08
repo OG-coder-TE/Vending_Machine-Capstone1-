@@ -1,5 +1,6 @@
 package com.techelevator;
 
+import java.io.File;
 import java.util.Scanner;
 
 public class Vending_Machine {	
@@ -9,7 +10,7 @@ public class Vending_Machine {
 	
 	public static void main(String[] args) {
 		
-
+		File inputFile = new File("vendingmachine.csv");
 
 		System.out.println("(1) Display Vending Machine Item");
 		System.out.println("(2) Select Product");
