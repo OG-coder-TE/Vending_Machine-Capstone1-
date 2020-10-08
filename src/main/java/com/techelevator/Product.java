@@ -1,51 +1,19 @@
 package com.techelevator;
 
-public abstract class Product {
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class Product extends Vending_Machine {
 
 	//Instance Variables
-	private String name;
-	private double price;
-	private int amountRemaining = 5;
-	private String slotLocation;
-	
-	
-	//Constructor
-	public Product(String name, double price, int amountRemaining, String slotLocation) {
-		 this.name = name;
-		 this.price = price;
-		 this.amountRemaining = amountRemaining;
-		 this.slotLocation = slotLocation;
-		
-	}
-
+	private Map<String, String> selectProduct = new HashMap<>();
 	
 	
 	
 	
 	
 	
-	
-	
-	
-//Getters
-	public String getName() {
-		return name;
-	}
-
-
-	public double getPrice() {
-		return price;
-	}
-
-
-	public int getAmountRemaining() {
-		return amountRemaining;
-	}
-
-
-	public String getSlotLocation() {
-		return slotLocation;
-	}
 	
 	
 }

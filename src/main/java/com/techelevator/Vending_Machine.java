@@ -1,6 +1,7 @@
 package com.techelevator;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Vending_Machine {	
@@ -20,7 +21,43 @@ public class Vending_Machine {
 		
 		if(userInput.equals("1")) {
 			
+			try(Scanner fileScanner = new Scanner(inputFile)) {
+				while(fileScanner.hasNextLine()) {
+					String line = fileScanner.nextLine();
+					
+					
+					String[] productDetails = line.split("\\|");
+					String locationName = productDetails[0] + " " + productDetails[1];
+					System.out.println(locationName + "getterfromotherClass");
+				}
+				
+				
+			} catch(FileNotFoundException e) {
+				System.out.println("There is NO such file.");
+				
+			}
 			
+		} if(userInput.equals("2")) {
+			System.out.println("(1) Feed Money");
+			System.out.println("(2) Select Product");
+			System.out.println("(3) Finish Transaction");
+			
+			String submenuSelection = input.nextLine();
+			
+			if(submenuSelection.equals("1")) {
+				
+				System.out.println("How much money will you feed me?");
+				String moneyFeed = input.nextLine();
+				int intMoneyFeed =  Integer.parseInt(moneyFeed);		
+				
+				Currency enterMoney = new Currency(intMoneyFeed, 0, 0, 0, 0);
+				
+				enterMoney.feedMoney(intMoneyFeed);
+				
+				System.out.println("Your total is: " + enterMoney.feedMoney(intMoneyFeed));
+				System.out.println("Cha-Ching - Yum!");
+				
+			}
 			
 		}
 		
