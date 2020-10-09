@@ -151,11 +151,15 @@ public class Vending_Machine  {
 							} candyObject.dispenseMessage();
 							} 
 							if(productSelection.equals("C1") || productSelection.equals("C2") || productSelection.equals("C3") || productSelection.equals("C4")) {
-								drinkObject.productWithdraw(count);
+								count--;
+								if(count <= 0) {
+								drinkObject.notDispenseMessage();
 								drinkObject.dispenseMessage();
 							}
 							if(productSelection.equals("D1") || productSelection.equals("D2") || productSelection.equals("D3") || productSelection.equals("D4")) {
-								gumObject.productWithdraw(count);
+								count--;
+								if(count <= 0) {
+								gumObject.notDispenseMessage();
 								gumObject.dispenseMessage();
 							
 					     	}
@@ -169,7 +173,8 @@ public class Vending_Machine  {
 		}
 
 	   	}
-		}
+			}
+	   	}}
 	}}
 
 		
