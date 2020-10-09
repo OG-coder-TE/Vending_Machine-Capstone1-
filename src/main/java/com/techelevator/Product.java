@@ -8,46 +8,40 @@ import java.util.Map;
 import java.util.Scanner;
 
 
-public class Product extends Vending_Machine {
+public abstract class Product {
 	
+	private String name;
+	private String price;
+	private int count = 5;
 	
+	public Product (String name, String price, int count) {
+		this.name = name;
+		this.price = price;
+		this.count = count;
+	}
+	
+	public void toCount(int count) {
+		count--;
+		
+	}
+	
+	public abstract void dispenseMessage();
+		
 
-	//Instance Variables
-	private Map<String, String> selectProductMap = new HashMap<>();
 	
-	//Constructor
-	public Product(Map<String, String> selectProductMap) {
-		this.selectProductMap = selectProductMap;
-		
-	}
-	
-	//Method
-	public void callMap() {
-		
-		
-	}
-	
-	
-//Getters
 	public String getName() {
 		return name;
 	}
 
-
-	public double getPrice() {
+	public String getPrice() {
 		return price;
 	}
 
-
-	public int getAmountRemaining() {
-		return amountRemaining;
+	public int getCount() {
+		return count;
 	}
 
 
-	public String getSlotLocation() {
-		return slotLocation;
-	}
-	
 	
 }
 //A1|Potato Crisps|3.05|Chip

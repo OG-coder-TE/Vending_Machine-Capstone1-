@@ -2,23 +2,28 @@ package com.techelevator;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
-public class Vending_Machine {	
+public class Vending_Machine  {	
 	
 	static Scanner input = new Scanner(System.in);
 
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FileNotFoundException {
 		
 		File inputFile = new File("vendingmachine.csv");
+		boolean returnToMainMenu = true;
+		
+		while(returnToMainMenu) {
 
 		System.out.println("(1) Display Vending Machine Item");
 		System.out.println("(2) Purchase");
 		System.out.println("(3) Exit");
-		
+		int count = 5;
 		String userInput = input.nextLine();	//Option
 		//Listing all of the items **Need to add quantity remaining
 		if(userInput.equals("1")) {
@@ -31,15 +36,12 @@ public class Vending_Machine {
 					String[] productDetails = line.split("\\|");
 					String locationName = productDetails[0] + " " + productDetails[1];
 					System.out.println(locationName + "getterfromotherClass");
-				}
-				
-				
-			} catch(FileNotFoundException e) {
-				System.out.println("There is NO such file.");
-				
+				} 
+				returnToMainMenu = true;
 			}
+				
 			
-		} if(userInput.equals("2")) {
+	   	} if(userInput.equals("2")) {
 			
 			boolean returnSubmenu = false;
 			
@@ -85,32 +87,33 @@ public class Vending_Machine {
 							//Display the location, item name, and item price to user
 							String productForDisplay = productDetails[0] + " " + productDetails[1] + " " + productDetails[2];
 							System.out.println(productForDisplay);
+								
+						}
+						
+						System.out.println("Whatcha wanna?");
+						String productChoice = input.nextLine();
+						if(productChoice.contains("A1") || productChoice.contains("A2") || productChoice.contains("A3") || productChoice.contains("A4")) {
 							
-							//Setting up to import into Map
-							String locationPriceForKey = productDetails[0] + " " + productDetails[1];
-							String priceForValue = productDetails[2];
+							Chip chipObject = new Chip(productChoice, "", count);
+							chipObject.toCount(count);
 							
-							Map<String, String> displayMap = new HashMap<>();
+							chipObject.dispenseMessage();
 							
-							displayMap.put(locationPriceForKey, priceForValue);
-							
-							
+							} 
 							
 						}
 						
-						
-					} catch(FileNotFoundException e) {
-						System.out.println("There is NO such file.");
-						
-					}
 					
+					}
 				}
 					
 			}
 				
 			
 		}
-		
+		}
+	}
+
 		
 		
 		
@@ -135,6 +138,4 @@ public class Vending_Machine {
 		
 		
 		
-	}
 
-}
