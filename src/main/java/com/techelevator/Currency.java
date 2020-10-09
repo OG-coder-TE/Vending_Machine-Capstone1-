@@ -24,12 +24,13 @@ public class Currency {
 	//Methods
 	public int feedMoney(int inputMoney) {		
 		
+		totalInputMoney = 0;
+		
 		if (inputMoney != 1 && inputMoney != 2 && inputMoney != 5 && inputMoney != 10) {
-			
 			
 			return 0;
 
-		} totalInputMoney = inputMoney; 
+		} totalInputMoney += inputMoney; 
 		return totalInputMoney;
 	}
 	
