@@ -14,4 +14,7 @@ public class Drink extends Product {
 		System.out.println("Glug Glug, Yum!");
 		
 	}
+	public void notDispenseMessage() {
+		System.out.println("We are out of it, sorry, choose another product, please!");
+}
 }

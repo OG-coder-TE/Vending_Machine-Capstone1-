@@ -138,23 +138,23 @@ public class Vending_Machine  {
 						if(inventoryMap.containsKey(productSelection)) {
 							
 							}
-							if ((productSelection.equals("A1") || productSelection.equals("A2") || productSelection.equals("A3") || productSelection.equals("A4")) && count > 0) {
-								chipObject.productWithdraw(count);
-								chipObject.dispenseMessage();
-							
-							} if((productSelection.equals("A1") || productSelection.equals("A2") || productSelection.equals("A3") || productSelection.equals("A4")) && count <= 0) {
-								chipObject.productWithdraw(count);
+						  if(productSelection.equals("A1") || productSelection.equals("A2") || productSelection.equals("A3") || productSelection.equals("A4")) {
+								count--;
+								if(count <= 0) {
 								chipObject.notDispenseMessage();
-							}
-							if(count > 0 && (productSelection.equals("B1") || productSelection.equals("B2") || productSelection.equals("B3") || productSelection.equals("B4"))) {
-								candyObject.productWithdraw(count);
-								candyObject.dispenseMessage();
+							} chipObject.dispenseMessage();
+							
+						  if(productSelection.equals("B1") || productSelection.equals("B2") || productSelection.equals("B3") || productSelection.equals("B4")) {
+							  count--;
+								if(count <= 0) {
+								candyObject.notDispenseMessage();
+							} candyObject.dispenseMessage();
 							} 
-							if(count > 0 && (productSelection.equals("C1") || productSelection.equals("C2") || productSelection.equals("C3") || productSelection.equals("C4"))) {
+							if(productSelection.equals("C1") || productSelection.equals("C2") || productSelection.equals("C3") || productSelection.equals("C4")) {
 								drinkObject.productWithdraw(count);
 								drinkObject.dispenseMessage();
 							}
-							if(count > 0 && (productSelection.equals("D1") || productSelection.equals("D2") || productSelection.equals("D3") || productSelection.equals("D4"))) {
+							if(productSelection.equals("D1") || productSelection.equals("D2") || productSelection.equals("D3") || productSelection.equals("D4")) {
 								gumObject.productWithdraw(count);
 								gumObject.dispenseMessage();
 							
@@ -170,8 +170,8 @@ public class Vending_Machine  {
 
 	   	}
 		}
-	}
-}
+	}}
+
 		
 //		A1|Potato Crisps|3.05|Chip
 //		A2|Stackers|1.45|Chip

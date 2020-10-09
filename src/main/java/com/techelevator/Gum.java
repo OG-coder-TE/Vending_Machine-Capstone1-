@@ -16,6 +16,8 @@ public class Gum extends Product {
 		System.out.println("Chew Chew, Yum!");
 		
 	}
-	
+	public void notDispenseMessage() {
+		System.out.println("We are out of it, sorry, choose another product, please!");
 
+}
 }
