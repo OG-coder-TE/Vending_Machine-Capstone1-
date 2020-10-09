@@ -149,24 +149,27 @@ public class Vending_Machine  {
 							  count--;
 								if(count <= 0) {
 								candyObject.notDispenseMessage();
-							} else {candyObject.dispenseMessage();
 							} 
-							if(productSelection.equals("C1") || productSelection.equals("C2") || productSelection.equals("C3") || productSelection.equals("C4")) {
+								candyObject.dispenseMessage();
+							}
+								
+						  if(productSelection.equals("C1") || productSelection.equals("C2") || productSelection.equals("C3") || productSelection.equals("C4")) {
 								count--;
 								if(count <= 0) {
 								drinkObject.notDispenseMessage();
+								} 
 								drinkObject.dispenseMessage();
 							}
+								
 							if(productSelection.equals("D1") || productSelection.equals("D2") || productSelection.equals("D3") || productSelection.equals("D4")) {
 								count--;
 								if(count <= 0) {
 								gumObject.notDispenseMessage();
-								gumObject.dispenseMessage();
+							} gumObject.dispenseMessage();
 							
 					     	}
 						
-					
-					
+			
 			}
 				
 			
@@ -175,10 +178,9 @@ public class Vending_Machine  {
 
 	   	}
 			}
-	   	}
-		}
+	   	
 	}
-}
+
 
 		
 //		A1|Potato Crisps|3.05|Chip
