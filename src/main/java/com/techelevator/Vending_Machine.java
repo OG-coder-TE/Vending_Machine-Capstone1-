@@ -24,7 +24,7 @@ public class Vending_Machine  {
 		System.out.println("(1) Display Vending Machine Item");
 		System.out.println("(2) Purchase");
 		System.out.println("(3) Exit");
-		//int count = 5;
+		int count = 5;
 		String userInput = input.nextLine();	//Option
 		//Listing all of the items **Need to add quantity remaining
 		if(userInput.equals("1")) {
@@ -78,7 +78,16 @@ public class Vending_Machine  {
 				
 				if(submenuSelection.equals("2")) {
 					
+				}
+					
 					try(Scanner fileScanner = new Scanner(inputFile)) {
+						
+						Map<String, Object> inventoryMap = new HashMap<>();
+						Chip chipObject = new Chip("", "", count);
+						Candy candyObject = new Candy("", "", count);
+						Drink drinkObject = new Drink("", "", count);
+						Gum gumObject = new Gum("", "", count);
+						
 						while(fileScanner.hasNextLine()) {
 							String line = fileScanner.nextLine();
 							
@@ -91,64 +100,78 @@ public class Vending_Machine  {
 							System.out.println(productForDisplay);
 							//method to make map of inventory of products - create map first, then fill it up
 							
-							Map<String, Object> inventoryMap = new HashMap<>();
+							
 							
 							if(productDetails[3].equals("Chip")) {
 							
-								Chip chipObject = new Chip(productDetails[1], productDetails[2], 5);
+								chipObject = new Chip(productDetails[0], productDetails[2], count);
 														
 								inventoryMap.put(productDetails[0], chipObject);
 
 								}
 							
 							if(productDetails[3].equals("Candy")) {
-								Candy candyObject = new Candy(productDetails[1], productDetails[2], 5);
-							
+								candyObject = new Candy(productDetails[0], productDetails[2], count);
+						
 								inventoryMap.put(productDetails[0], candyObject);
 								}
 							
 							if(productDetails[3].equals("Drink")) {
-								Drink drinkObject = new Drink(productDetails[1], productDetails[2], 5);
+								drinkObject = new Drink(productDetails[0], productDetails[2], count);
 							
 								inventoryMap.put(productDetails[0], drinkObject);
 								}
 								
 							if(productDetails[3].equals("Gum")) {
-								Gum gumObject = new Gum(productDetails[1], productDetails[2], 5);
+							    gumObject = new Gum(productDetails[0], productDetails[2], count);
 							
 								inventoryMap.put(productDetails[0], gumObject);
 								}
 														
-							
-						
+					
+						} 
+					
 						System.out.println("What would you like? (Input Number + Letter)");
 						//User input for selection
 						String productSelection = input.nextLine();
+						
 						if(inventoryMap.containsKey(productSelection)) {
 							
-							if(inventoryMap.get(productDetails[0].getCount()) == 0) {
-								
 							}
+							if ((productSelection.equals("A1") || productSelection.equals("A2") || productSelection.equals("A3") || productSelection.equals("A4")) && count > 0) {
+								chipObject.productWithdraw(count);
+								chipObject.dispenseMessage();
 							
-						}
-						}
+							} if((productSelection.equals("A1") || productSelection.equals("A2") || productSelection.equals("A3") || productSelection.equals("A4")) && count <= 0) {
+								chipObject.productWithdraw(count);
+								chipObject.notDispenseMessage();
+							}
+							if(count > 0 && (productSelection.equals("B1") || productSelection.equals("B2") || productSelection.equals("B3") || productSelection.equals("B4"))) {
+								candyObject.productWithdraw(count);
+								candyObject.dispenseMessage();
+							} 
+							if(count > 0 && (productSelection.equals("C1") || productSelection.equals("C2") || productSelection.equals("C3") || productSelection.equals("C4"))) {
+								drinkObject.productWithdraw(count);
+								drinkObject.dispenseMessage();
+							}
+							if(count > 0 && (productSelection.equals("D1") || productSelection.equals("D2") || productSelection.equals("D3") || productSelection.equals("D4"))) {
+								gumObject.productWithdraw(count);
+								gumObject.dispenseMessage();
 							
-						
-						
-							
-						}
+					     	}
 						
 					
-					}
-				}
 					
 			}
 				
 			
 		}
 		}
-	}
 
+	   	}
+		}
+	}
+}
 		
 //		A1|Potato Crisps|3.05|Chip
 //		A2|Stackers|1.45|Chip

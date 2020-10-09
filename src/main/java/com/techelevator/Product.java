@@ -12,7 +12,7 @@ public class Product {
 	
 	private String name;
 	private String price;
-	private int count = 5;
+	private int count;
 	
 	public Product (String name, String price, int count) {
 		this.name = name;

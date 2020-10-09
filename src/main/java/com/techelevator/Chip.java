@@ -28,6 +28,9 @@ public class Chip extends Product{
 	
 		
 	}
+	public void notDispenseMessage() {
+		System.out.println("We are out of it, sorry, choose another product, please!");
+	}
 
 
 	
