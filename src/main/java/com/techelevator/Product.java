@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.Scanner;
 
 
-public abstract class Product {
+public class Product {
 	
 	private String name;
 	private String price;
@@ -20,12 +20,15 @@ public abstract class Product {
 		this.count = count;
 	}
 	
-	public void toCount(int count) {
+	public void productWithdraw(int count) {
 		count--;
 		
 	}
 	
-	public abstract void dispenseMessage();
+	public void dispenseMessage() {
+		
+		
+	}
 		
 
 	

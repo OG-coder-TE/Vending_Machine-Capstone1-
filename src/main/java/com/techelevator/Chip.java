@@ -14,7 +14,7 @@ public class Chip extends Product{
 	 
 
 	@Override
-	public void toCount(int count) {
+	public void productWithdraw(int count) {
 		count--;
 		
 	}

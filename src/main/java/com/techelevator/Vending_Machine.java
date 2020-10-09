@@ -15,6 +15,7 @@ public class Vending_Machine  {
 	
 	public static void main(String[] args) throws FileNotFoundException {
 		
+		
 		File inputFile = new File("vendingmachine.csv");
 		boolean returnToMainMenu = true;
 		
@@ -23,7 +24,7 @@ public class Vending_Machine  {
 		System.out.println("(1) Display Vending Machine Item");
 		System.out.println("(2) Purchase");
 		System.out.println("(3) Exit");
-		int count = 5;
+		//int count = 5;
 		String userInput = input.nextLine();	//Option
 		//Listing all of the items **Need to add quantity remaining
 		if(userInput.equals("1")) {
@@ -35,7 +36,7 @@ public class Vending_Machine  {
 					
 					String[] productDetails = line.split("\\|");
 					String locationName = productDetails[0] + " " + productDetails[1];
-					System.out.println(locationName + "getterfromotherClass");
+					System.out.println(locationName + "Something here for count");
 				} 
 				returnToMainMenu = true;
 			}
@@ -46,7 +47,7 @@ public class Vending_Machine  {
 			boolean returnSubmenu = false;
 			
 			int addMoney = 0;
-			//Submenu Options
+			//SubMenu Options
 			while(!returnSubmenu) {
 				System.out.println("(1) Feed Money");
 				System.out.println("(2) Select Product");
@@ -86,20 +87,54 @@ public class Vending_Machine  {
 							
 							//Display the location, item name, and item price to user
 							String productForDisplay = productDetails[0] + " " + productDetails[1] + " " + productDetails[2];
+									
 							System.out.println(productForDisplay);
+							//method to make map of inventory of products - create map first, then fill it up
+							
+							Map<String, Object> inventoryMap = new HashMap<>();
+							
+							if(productDetails[3].equals("Chip")) {
+							
+								Chip chipObject = new Chip(productDetails[1], productDetails[2], 5);
+														
+								inventoryMap.put(productDetails[0], chipObject);
+
+								}
+							
+							if(productDetails[3].equals("Candy")) {
+								Candy candyObject = new Candy(productDetails[1], productDetails[2], 5);
+							
+								inventoryMap.put(productDetails[0], candyObject);
+								}
+							
+							if(productDetails[3].equals("Drink")) {
+								Drink drinkObject = new Drink(productDetails[1], productDetails[2], 5);
+							
+								inventoryMap.put(productDetails[0], drinkObject);
+								}
 								
-						}
+							if(productDetails[3].equals("Gum")) {
+								Gum gumObject = new Gum(productDetails[1], productDetails[2], 5);
+							
+								inventoryMap.put(productDetails[0], gumObject);
+								}
+														
+							
 						
-						System.out.println("Whatcha wanna?");
-						String productChoice = input.nextLine();
-						if(productChoice.contains("A1") || productChoice.contains("A2") || productChoice.contains("A3") || productChoice.contains("A4")) {
+						System.out.println("What would you like? (Input Number + Letter)");
+						//User input for selection
+						String productSelection = input.nextLine();
+						if(inventoryMap.containsKey(productSelection)) {
 							
-							Chip chipObject = new Chip(productChoice, "", count);
-							chipObject.toCount(count);
+							if(inventoryMap.get(productDetails[0].getCount()) == 0) {
+								
+							}
 							
-							chipObject.dispenseMessage();
+						}
+						}
 							
-							} 
+						
+						
 							
 						}
 						
@@ -114,9 +149,6 @@ public class Vending_Machine  {
 		}
 	}
 
-		
-		
-		
 		
 //		A1|Potato Crisps|3.05|Chip
 //		A2|Stackers|1.45|Chip
