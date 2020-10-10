@@ -2,6 +2,7 @@ package com.techelevator;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.sql.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -128,16 +129,19 @@ public class Vending_Machine  {
 								inventoryMap.put(productDetails[0], gumObject);
 								}
 														
-					
+					System.out.println(inventoryMap);
 						} 
 					
 						System.out.println("What would you like? (Input Number + Letter)");
 						//User input for selection
-						String productSelection = input.nextLine();
+						String productSelection = input.nextLine(); {
+				
 						
-						if(inventoryMap.containsKey(productSelection)) {
+						
+								
 							
-							}
+							
+						}
 						  if(productSelection.equals("A1") || productSelection.equals("A2") || productSelection.equals("A3") || productSelection.equals("A4")) {
 								count--;
 								if(count <= 0) {

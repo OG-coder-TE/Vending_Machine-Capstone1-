@@ -1,43 +1,62 @@
 package com.techelevator;
 
-public class Inventory {
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
 
-	//Instance Variables
+public class Inventory { 
 	
+	int count = 5;
+
+	public Map<String, Object> createInventory() throws FileNotFoundException {
+	    Map<String, Object> inventoryMap = new HashMap<>();
+	    String path = "vendingmachine.csv";
+		File inputFile = new File(path);
+	    
+	  try (Scanner myScanner = new Scanner(inputFile)) {
 	
-	
-	
-	//Constructor
-	
-	
-	
-	//Methods
-	
-	//public int productWithdraw() {
+	while(myScanner.hasNextLine()) {
+		String line = myScanner.nextLine();
+		//Splitting up each line of the input file
+		String[] productDetails = line.split("\\|");
 		
+		//Display the location, item name, and item price to user
+		String productForDisplay = productDetails[0] + " " + productDetails[1] + " " + productDetails[2];
+				
+		System.out.println(productForDisplay);
+		//method to make map of inventory of products - create map first, then fill it up
 		
-//	}
+	if(productDetails[3].equals("Chip")) {
+		
+		Chip chipObject = new Chip(productDetails[0], productDetails[2], count);
+								
+		inventoryMap.put(productDetails[0], chipObject);
+
+		}
 	
+	if(productDetails[3].equals("Candy")) {
+		Candy candyObject = new Candy(productDetails[0], productDetails[2], count);
+
+		inventoryMap.put(productDetails[0], candyObject);
+		}
 	
-	//Getters
+	if(productDetails[3].equals("Drink")) {
+		Drink drinkObject = new Drink(productDetails[0], productDetails[2], count);
 	
+		inventoryMap.put(productDetails[0], drinkObject);
+		}
+		
+	if(productDetails[3].equals("Gum")) {
+	   Gum gumObject = new Gum(productDetails[0], productDetails[2], count);
 	
+		inventoryMap.put(productDetails[0], gumObject);
+	}
+		}
+								
+		return inventoryMap;
+	}
 	
 }
-
-//A1|Potato Crisps|3.05|Chip
-//A2|Stackers|1.45|Chip
-//A3|Grain Waves|2.75|Chip
-//A4|Cloud Popcorn|3.65|Chip
-//B1|Moonpie|1.80|Candy
-//B2|Cowtales|1.50|Candy
-//B3|Wonka Bar|1.50|Candy
-//B4|Crunchie|1.75|Candy
-//C1|Cola|1.25|Drink
-//C2|Dr. Salt|1.50|Drink
-//C3|Mountain Melter|1.50|Drink
-//C4|Heavy|1.50|Drink
-//D1|U-Chews|0.85|Gum
-//D2|Little League Chew|0.95|Gum
-//D3|Chiclets|0.75|Gum
-//D4|Triplemint|0.75|Gum
+}
