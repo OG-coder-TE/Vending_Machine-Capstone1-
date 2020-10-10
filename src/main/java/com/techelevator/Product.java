@@ -10,43 +10,70 @@ import java.util.Scanner;
 
 public class Product {
 	
-	private String name;
-	private String price;
-	private int money;
+	private int Inventory = 5;
+	private String item;
+	private double price;
+	private String productType;
+	private String itemKey;
+	private String itemMessage;
 	
-	public Product (String name, String price, int money) {
-		this.name = name;
-		this.price = price;
-		this.money = money;
+	public Product(String[] productInfo) {
+		this.itemKey = productInfo[0];
+		this.productType = productInfo[1];
+		this.price = Double.parseDouble(productInfo[2]);
+		this.productType = productInfo[3];
+		this.itemMessage = productInfo[4];
 	}
-	String path = "vendingmachine.csv";
-	File inputFile = new File(path);
-	String locationsName = "";
-	int cost = 0;
-	
 	
 
 	
 	
 	
-
-	
-	
-	
-	public String getName() {
-		return name;
+	public int getInventory() {
+		return Inventory;
 	}
 
-	public String getPrice() {
-		return price;
+
+
+
+	public String getItem() {
+		return item;
 	}
 
-	public int getMoney() {
-		return money;
+
+
+
+	public String getProductType() {
+		return productType;
 	}
-	
-	
-	
+
+
+
+	public String getItemKey() {
+		return itemKey;
+	}
+
+
+
+
+	public String getItemMessage() {
+		return itemMessage;
+	}
+
+	public double getPrice() {
+	return price;
+	}
+
+
+
+
+
+
+
+
+
+
+
 	
 	
 	

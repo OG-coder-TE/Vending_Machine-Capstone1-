@@ -25,7 +25,7 @@ public class Machine {
 		
 		if(firstChoice.equals("1")) {
 		
-		Map<String, Integer> displayObject = inventory.createDisplayInventory();
+		Map<String, Integer> displayObject = inventory.createInventory();
 		System.out.println(displayObject);
 
 	} else if(firstChoice.contentEquals("2")) {

@@ -8,8 +8,12 @@ import java.util.Scanner;
 
 public class Display {
 	
+	private String userChoice = "";
+	private Scanner inputUser = new Scanner(System.in);
 	
-		
+	private Map<String, Product> inventoryMap;
+	
+
 	
 	
 	
