@@ -3,20 +3,25 @@ package com.techelevator;
 public class Currency {
 
 	//instance variables
-	private int inputMoney;
-	private double quarter;
-	private double nickel;
-	private double dime;
-	private int totalInputMoney;
+	public int inputMoney;
+	public int quarter;
+	public int nickel;
+	public int dime;
+	public int totalInputMoney;
+	public int change;
 	
 	
 	//Constructor
-	public Currency(int inputMoney, double quarter, double nickel, double dime, int totalInputMoney) {
+	public Currency(int inputMoney, int quarter, int nickel, int dime, int totalInputMoney, int change) {
 		this.inputMoney = inputMoney;
-		this.quarter = 0.25;
-		this.nickel = 0.05;
-		this.dime = 0.10;
+		this.quarter = 0;
+		this.nickel = 0;
+		this.dime = 0;
 		this.totalInputMoney = totalInputMoney;
+		this.change = change;
+	}
+	public Currency(int inputMoney) {
+		this.inputMoney = inputMoney;
 	}
 	
 
@@ -36,7 +41,24 @@ public class Currency {
 	
 	
 	
-	//Getters
+	public void changeOut(int change) {
+		while(change >= 25) {
+			quarter += 1;
+			change -= 25;
+		}
+			
+		while(change >= 10) {
+			dime += 1;
+			change -= 10;
+		}
+		
+		while(change >= 5) {
+			nickel += 1;
+			change -= 5;
+		}
+		}
+	
+
 	
 		
 	
@@ -59,9 +81,6 @@ public class Currency {
 	public double getDime() {
 		return dime;
 	}
-	
-	
-	
-	
+		
 	
 }

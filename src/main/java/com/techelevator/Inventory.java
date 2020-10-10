@@ -11,6 +11,7 @@ public class Inventory {
 	int count = 5;
 
 	public Map<String, Object> createInventory() throws FileNotFoundException {
+		
 	    Map<String, Object> inventoryMap = new HashMap<>();
 	    String path = "vendingmachine.csv";
 		File inputFile = new File(path);
