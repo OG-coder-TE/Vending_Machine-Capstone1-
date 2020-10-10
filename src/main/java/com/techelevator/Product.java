@@ -12,25 +12,49 @@ public class Product {
 	
 	private String name;
 	private String price;
-	private int count;
+	private int money;
 	
-	public Product (String name, String price, int count) {
+	public Product (String name, String price, int money) {
 		this.name = name;
 		this.price = price;
-		this.count = count;
+		this.money = money;
+	}
+	String path = "vendingmachine.csv";
+	File inputFile = new File(path);
+	String locationsName = "";
+	int priceOriginal = 0;
+	
+	public String dispense() throws FileNotFoundException {
+		
+		
+		try(Scanner fileScanner = new Scanner(inputFile)){
+			if(fileScanner.hasNextLine()) {
+				String line = fileScanner.nextLine();
+				
+				
+				String[] productDetails = line.split("\\|");
+				String locationName = "\n" + productDetails[0] + " " +  "\n" + productDetails[1];
+		} return locationsName;
+		
+		} 
 	}
 	
-	public void productWithdraw(int count) {
-		count--;
+	
+	public int price() throws FileNotFoundException {
+		try(Scanner Scanner = new Scanner(inputFile)) {
+			if(Scanner.hasNextLine()) {
+				String line = Scanner.nextLine();
+				
+				
+				String[] productDetails = line.split("\\|");
+				String priceString = productDetails[3];
+				int price = Integer.parseInt(priceString);
+		}
+		return priceOriginal;
 		
 	}
 	
-	public void dispenseMessage() {
-		
-		
 	}
-		
-
 	
 	public String getName() {
 		return name;
@@ -40,26 +64,14 @@ public class Product {
 		return price;
 	}
 
-	public int getCount() {
-		return count;
+	public int getMoney() {
+		return money;
 	}
-
-
+	
+	
+	
+	
+	
+	
 	
 }
-//A1|Potato Crisps|3.05|Chip
-//A2|Stackers|1.45|Chip
-//A3|Grain Waves|2.75|Chip
-//A4|Cloud Popcorn|3.65|Chip
-//B1|Moonpie|1.80|Candy
-//B2|Cowtales|1.50|Candy
-//B3|Wonka Bar|1.50|Candy
-//B4|Crunchie|1.75|Candy
-//C1|Cola|1.25|Drink
-//C2|Dr. Salt|1.50|Drink
-//C3|Mountain Melter|1.50|Drink
-//C4|Heavy|1.50|Drink
-//D1|U-Chews|0.85|Gum
-//D2|Little League Chew|0.95|Gum
-//D3|Chiclets|0.75|Gum
-//D4|Triplemint|0.75|Gum

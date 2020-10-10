@@ -11,7 +11,6 @@ public class Inventory {
 	int count = 5;
 
 	public Map<String, Object> createInventory() throws FileNotFoundException {
-		
 	    Map<String, Object> inventoryMap = new HashMap<>();
 	    String path = "vendingmachine.csv";
 		File inputFile = new File(path);
@@ -31,26 +30,26 @@ public class Inventory {
 		
 	if(productDetails[3].equals("Chip")) {
 		
-		Chip chipObject = new Chip(productDetails[0], productDetails[2], count);
+		Product chipObject = new Product (productDetails[0], productDetails[2], count);
 								
 		inventoryMap.put(productDetails[0], chipObject);
 
 		}
 	
 	if(productDetails[3].equals("Candy")) {
-		Candy candyObject = new Candy(productDetails[0], productDetails[2], count);
+		Product candyObject = new Product(productDetails[0], productDetails[2], count);
 
 		inventoryMap.put(productDetails[0], candyObject);
 		}
 	
 	if(productDetails[3].equals("Drink")) {
-		Drink drinkObject = new Drink(productDetails[0], productDetails[2], count);
+		Product drinkObject = new Product (productDetails[0], productDetails[2], count);
 	
 		inventoryMap.put(productDetails[0], drinkObject);
 		}
 		
 	if(productDetails[3].equals("Gum")) {
-	   Gum gumObject = new Gum(productDetails[0], productDetails[2], count);
+	   Product gumObject = new Product (productDetails[0], productDetails[2], count);
 	
 		inventoryMap.put(productDetails[0], gumObject);
 	}

@@ -4,15 +4,15 @@ public class Currency {
 
 	//instance variables
 	public int inputMoney;
-	public int quarter;
-	public int nickel;
-	public int dime;
+	public double quarter;
+	public double nickel;
+	public double dime;
 	public int totalInputMoney;
-	public int change;
+	public double change;
 	
 	
 	//Constructor
-	public Currency(int inputMoney, int quarter, int nickel, int dime, int totalInputMoney, int change) {
+	public Currency(int inputMoney, double quarter, double nickel, double dime, int totalInputMoney, double change) {
 		this.inputMoney = inputMoney;
 		this.quarter = 0;
 		this.nickel = 0;
@@ -42,19 +42,19 @@ public class Currency {
 	
 	
 	public void changeOut(int change) {
-		while(change >= 25) {
+		while(change >= 0.25) {
 			quarter += 1;
-			change -= 25;
+			change -= 0.25;
 		}
 			
-		while(change >= 10) {
+		while(change >= 0.10) {
 			dime += 1;
-			change -= 10;
+			change -= 0.10;
 		}
 		
-		while(change >= 5) {
+		while(change >= 0.05) {
 			nickel += 1;
-			change -= 5;
+			change -= 0.5;
 		}
 		}
 	
