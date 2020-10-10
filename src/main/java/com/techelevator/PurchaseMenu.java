@@ -20,7 +20,7 @@ public class PurchaseMenu {
 	}
 	
 	public void displayMenu() {
-		System.out.println("Purcahse Menu");
+		System.out.println("Purchase Menu");
 		System.out.println();
 		System.out.println("[1] Feed Money");
 		System.out.println("[2] Select Product");
@@ -48,9 +48,12 @@ public class PurchaseMenu {
 			while(!userChoice.equals("1") && !userChoice.equals("2") && !userChoice.contentEquals("5")) {
 				System.out.println("Please add money. Or type [3] to go back");
 				userChoice = userInput.nextLine();
+			}
 		}
 	}
 	
-
-}
+	public void 
+	
+	
+	
 }

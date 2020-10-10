@@ -12,49 +12,16 @@ public class CurrencyTest {
 	
 	@Test
 	
-	public void testing_currency_with_5_returns_5() {
+	public String testing_return_change_with_two_dollars_seventyfive_cents() {
 	
-	Currency input = new Currency(0, 0, 0, 0, 0);
+	Currency input = new Currency();
 	
-	int output = input.feedMoney(5);
+	String output = input.createChange(2.75);
 	
 	
 	Assert.assertEquals(5, output);
 	}
 	
-@Test
-	
-	public void testing_currency_with_0_returns_0() {
-	
-	Currency input = new Currency(0, 0, 0, 0, 0);
-	
-	int output = input.feedMoney(0);
-
-	Assert.assertEquals(0, output);
-	}
-
-@Test
-
-public void testing_currency_with_9_returns_0() {
-
-Currency input = new Currency(0, 0, 0, 0, 0);
-
-int output = input.feedMoney(9);
-
-Assert.assertEquals(0, output);
-}
-
-@Test
-
-public void testing_currency_with_negative_2_returns_0() {
-
-Currency input = new Currency(0, 0, 0, 0, 0);
-
-int output = input.feedMoney(-2);
-
-Assert.assertEquals(0, output);
-}
-
 
 	
 }

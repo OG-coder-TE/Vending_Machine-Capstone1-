@@ -35,7 +35,7 @@ public class Currency {
 		int dimeAmount = 0;
 		int nickelAmount = 0;
 		
-		double changeAsDouble = change * 100.00;			// change value is decimal, multipling to make it whole numbers
+		double changeAsDouble = change * 100.00;			// change value is decimal, multiplying to make it whole numbers
 		
 		int cents = (int) Math.round(changeAsDouble);		//rounds the change to make whole change
 		
