@@ -50,7 +50,7 @@ public class Currency {
 		
 		nickelAmount += remainingNickels / NICKEL;
 		
-		return cents + ") You receive " + quarterAmount + " quarter(s), " + dimeAmount + " dime(s), and " + nickelAmount + " nickels in change.";
+		return cents + " You receive " + quarterAmount + " quarter(s), " + dimeAmount + " dime(s), and " + nickelAmount + " nickels in change.";
 		
 	}
 	
