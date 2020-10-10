@@ -59,6 +59,10 @@ public class Currency {
 		}
 	
 
+	public void transactionAndUpdatedBalance() {
+		//need to update balance with transaction
+		
+	}
 	
 		
 	

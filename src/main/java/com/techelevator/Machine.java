@@ -13,9 +13,7 @@ public class Machine {
 		
 		System.out.println("Welcome to The Supreme Vending Machine!!!");
 		System.out.println();
-		
-		File inputFile = new File("vendingmachine.csv");
-		
+				
 		Display display = new Display();
 		Currency money = new Currency(0);
 		Inventory inventory = new Inventory();
@@ -53,7 +51,7 @@ public class Machine {
 			
 			
 		case "3":	
-			
+		 
 		}
 	}
 	

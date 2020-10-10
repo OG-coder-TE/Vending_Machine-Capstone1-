@@ -8,6 +8,11 @@ import java.util.Scanner;
 
 public class Inventory { 
 	
+	//Instance Variables
+	private Map<String, Integer> inventoryMap;
+	
+	
+	
 	int count = 5;
 	
 	public Map<String, Integer> createDisplayInventory() throws FileNotFoundException {
@@ -84,4 +89,16 @@ public class Inventory {
 	}
 	
 }
+	public void dispenseAuditReport() {
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
 }
