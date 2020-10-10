@@ -9,8 +9,33 @@ import java.util.Scanner;
 public class Inventory { 
 	
 	int count = 5;
+	
+	public Map<String, Integer> createDisplayInventory() throws FileNotFoundException {
+		
+		Map<String, Integer> display = new HashMap<>();
+	 String path = "vendingmachine.csv";
+		File inputFile = new File(path);
+		
+		
+		String pathDisplay = "vendingmachine.csv";
+		File input = new File(path);
+
+	try(Scanner fileScanner = new Scanner(inputFile)) {
+		while(fileScanner.hasNextLine()) {
+			String line = fileScanner.nextLine();
+			
+			
+			String[] productDetails = line.split("\\|");
+			String locationName = "\n" + productDetails[0] + " " +  "\n" + productDetails[1];
+			display.put(locationName, count);
+		} 
+		return display;
+	}
+	
+	}
 
 	public Map<String, Object> createInventory() throws FileNotFoundException {
+		
 	    Map<String, Object> inventoryMap = new HashMap<>();
 	    String path = "vendingmachine.csv";
 		File inputFile = new File(path);

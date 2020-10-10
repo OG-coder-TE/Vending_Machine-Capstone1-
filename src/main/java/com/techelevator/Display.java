@@ -8,28 +8,9 @@ import java.util.Scanner;
 
 public class Display {
 	
-	public Map<String, 	Integer> createDisplay() throws FileNotFoundException {
+	
 		
-	int count = 5;
-	 String path = "vendingmachine.csv";
-		File inputFile = new File(path);
-		
-		Map<String, Integer> display = new HashMap<>();
-		String pathDisplay = "vendingmachine.csv";
-		File input = new File(path);
-
-	try(Scanner fileScanner = new Scanner(inputFile)) {
-		while(fileScanner.hasNextLine()) {
-			String line = fileScanner.nextLine();
-			
-			
-			String[] productDetails = line.split("\\|");
-			String locationName = "\n" + productDetails[0] + " " +  "\n" + productDetails[1];
-			display.put(locationName, count);
-		} 
-	}
-	return display;
-	}
+	
 	
 	
 	//Methods

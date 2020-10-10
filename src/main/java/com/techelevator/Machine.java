@@ -16,23 +16,23 @@ public class Machine {
 		
 		File inputFile = new File("vendingmachine.csv");
 		
-		Display displayMenu = new Display();
+		Display display = new Display();
 		Currency money = new Currency(0);
 		Inventory inventory = new Inventory();
 		
-		displayMenu.getMainMenu();
+		display.getMainMenu() ;
 		
 		System.out.println("Please, choose what you would like to do!");
 		String firstChoice = input.nextLine();
 		
 		if(firstChoice.equals("1")) {
 		
-		Map<String, Integer> displayObject = displayMenu.createDisplay();
+		Map<String, Integer> displayObject = inventory.createDisplayInventory();
 		System.out.println(displayObject);
 
 	} else if(firstChoice.contentEquals("2")) {
 		
-		displayMenu.getPurchaseMenu(); 
+		display.getPurchaseMenu(); 
 		System.out.println();
 		System.out.println("Great! What's next?");
 		String purchaseMenu = input.nextLine();
