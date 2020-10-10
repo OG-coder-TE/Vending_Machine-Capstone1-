@@ -13,8 +13,14 @@ import java.util.TreeMap;
 public class Inventory { 
 	public static Map <String, Product> inventoryMap = new TreeMap<String, Product>();
 	
-	
-
+	public static File log = new File("log.txt");
+	public static void main(String[] arg) throws FileNotFoundException {
+		
+		createInventory();
+		MainMenu main = new MainMenu(inventoryMap, log);
+		main.run();
+	}
+ 
 	public static void createInventory() throws FileNotFoundException  {
 		String path = "vendingmachine.csv";
 		File inputFile = new File(path);	
@@ -30,8 +36,6 @@ public class Inventory {
 		Product product = new Product(info);
 		inventoryMap.put(info[0], product);
 		
-
-	
 	  }
 	
 	  }

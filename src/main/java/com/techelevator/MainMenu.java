@@ -27,10 +27,15 @@ public class MainMenu {
 		System.out.println("(1) Display Vending Machine Item");
 		System.out.println("(2) Purchase");
 		System.out.println("(3) Exit");
+		
+		System.out.println("Please, choose what you would like to do!");
+		userChoice = inputUser.nextLine();
+		
+		
 	
 	}
+
 	
-	public void getInventorymap() {
 		
 		
 	}
