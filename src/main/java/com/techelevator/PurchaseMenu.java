@@ -14,6 +14,11 @@ public class PurchaseMenu {
 	private File log;
 	
 	
+	public PurchaseMenu() {
+		
+		
+	}
+	
 	public PurchaseMenu(Map<String, Product> data, File logFile) {
 		this.inventoryMap = data;
 		this.log = logFile;
@@ -35,7 +40,7 @@ public class PurchaseMenu {
 		userChoice = userInput.nextLine();
 		System.out.println();
 		
-		while(!userChoice.equals("1") && !userChoice.equals("2") && !userChoice.contentEquals("5")) {
+		while(!userChoice.equals("1") && !userChoice.equals("2") && !userChoice.equals("3")) {
 			System.out.println("Please choose [1], [2] or [3]");
 			userChoice = userInput.nextLine();
 			
@@ -45,14 +50,13 @@ public class PurchaseMenu {
 		if(userChoice.contentEquals("1")) {
 			System.out.println("Add money");
 			userChoice = userInput.nextLine();
-			while(!userChoice.equals("1") && !userChoice.equals("2") && !userChoice.contentEquals("5")) {
-				System.out.println("Please add money. Or type [3] to go back");
+			while(!userChoice.equals("1") && !userChoice.equals("2") && !userChoice.equals("5")) {
+				System.out.println("Please add money.");
 				userChoice = userInput.nextLine();
 			}
 		}
 	}
 	
-	public void 
 	
 	
 	

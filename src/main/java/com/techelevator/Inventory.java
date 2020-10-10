@@ -16,9 +16,7 @@ public class Inventory {
 	public static File log = new File("log.txt");
 	public static void main(String[] arg) throws FileNotFoundException {
 		
-		createInventory();
-		MainMenu main = new MainMenu(inventoryMap, log);
-		main.run();
+		
 	}
  
 	public static void createInventory() throws FileNotFoundException  {
@@ -41,11 +39,11 @@ public class Inventory {
 	  }
 	
 	}
+	//Getter
+	public static Map<String, Product> getInventoryMap() {
+		return inventoryMap;
 	
-	
-	
-	
-	
+	}
 	
 	
 	

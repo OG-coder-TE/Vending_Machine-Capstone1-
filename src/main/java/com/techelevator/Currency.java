@@ -8,6 +8,25 @@ public class Currency {
 	private final int NICKEL = 5;
 	private int dollars;
 	private double change;
+	public int getDollars() {
+		return dollars;
+	}
+
+
+	public double getChange() {
+		return change;
+	}
+
+
+	public double getBalance() {
+		return balance;
+	}
+
+
+	public double getFedMoney() {
+		return fedMoney;
+	}
+
 	private double balance = 0.00;
 	private double fedMoney;
 	
