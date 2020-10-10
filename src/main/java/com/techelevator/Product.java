@@ -22,39 +22,16 @@ public class Product {
 	String path = "vendingmachine.csv";
 	File inputFile = new File(path);
 	String locationsName = "";
-	int priceOriginal = 0;
-	
-	public String dispense() throws FileNotFoundException {
-		
-		
-		try(Scanner fileScanner = new Scanner(inputFile)){
-			if(fileScanner.hasNextLine()) {
-				String line = fileScanner.nextLine();
-				
-				
-				String[] productDetails = line.split("\\|");
-				String locationName = "\n" + productDetails[0] + " " +  "\n" + productDetails[1];
-		} return locationsName;
-		
-		} 
-	}
+	int cost = 0;
 	
 	
-	public int price() throws FileNotFoundException {
-		try(Scanner Scanner = new Scanner(inputFile)) {
-			if(Scanner.hasNextLine()) {
-				String line = Scanner.nextLine();
-				
-				
-				String[] productDetails = line.split("\\|");
-				String priceString = productDetails[3];
-				int price = Integer.parseInt(priceString);
-		}
-		return priceOriginal;
-		
-	}
+
 	
-	}
+	
+	
+
+	
+	
 	
 	public String getName() {
 		return name;
