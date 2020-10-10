@@ -10,66 +10,70 @@ import java.util.Scanner;
 
 public class Product {
 	
-	private String name;
-	private String price;
-	private int money;
+	private int Inventory = 5;
+	private String item;
+	private double price;
+	private String productType;
+	private String itemKey;
+	private String itemMessage;
 	
-	public Product (String name, String price, int money) {
-		this.name = name;
-		this.price = price;
-		this.money = money;
-	}
-	String path = "vendingmachine.csv";
-	File inputFile = new File(path);
-	String locationsName = "";
-	int priceOriginal = 0;
-	
-	public String dispense() throws FileNotFoundException {
-		
-		
-		try(Scanner fileScanner = new Scanner(inputFile)){
-			if(fileScanner.hasNextLine()) {
-				String line = fileScanner.nextLine();
-				
-				
-				String[] productDetails = line.split("\\|");
-				String locationName = "\n" + productDetails[0] + " " +  "\n" + productDetails[1];
-		} return locationsName;
-		
-		} 
+	public Product(String[] productInfo) {
+		this.itemKey = productInfo[0];
+		this.productType = productInfo[1];
+		this.price = Double.parseDouble(productInfo[2]);
+		this.productType = productInfo[3];
+		this.itemMessage = productInfo[4];
 	}
 	
+
 	
-	public int price() throws FileNotFoundException {
-		try(Scanner Scanner = new Scanner(inputFile)) {
-			if(Scanner.hasNextLine()) {
-				String line = Scanner.nextLine();
-				
-				
-				String[] productDetails = line.split("\\|");
-				String priceString = productDetails[3];
-				int price = Integer.parseInt(priceString);
-		}
-		return priceOriginal;
-		
-	}
 	
-	}
 	
-	public String getName() {
-		return name;
+	public int getInventory() {
+		return Inventory;
 	}
 
-	public String getPrice() {
-		return price;
+
+
+
+	public String getItem() {
+		return item;
 	}
 
-	public int getMoney() {
-		return money;
+
+
+
+	public String getProductType() {
+		return productType;
 	}
-	
-	
-	
+
+
+
+	public String getItemKey() {
+		return itemKey;
+	}
+
+
+
+
+	public String getItemMessage() {
+		return itemMessage;
+	}
+
+	public double getPrice() {
+	return price;
+	}
+
+
+
+
+
+
+
+
+
+
+
 	
 	
 	

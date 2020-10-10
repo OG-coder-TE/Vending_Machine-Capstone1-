@@ -2,98 +2,47 @@ package com.techelevator;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.TreeMap;
 
 public class Inventory { 
+	public static Map <String, Product> inventoryMap = new TreeMap<String, Product>();
 	
-	//Instance Variables
-	private Map<String, Integer> inventoryMap;
-	
-	
-	
-	int count = 5;
-	
-	public Map<String, Integer> createDisplayInventory() throws FileNotFoundException {
+	public static File log = new File("log.txt");
+	public static void main(String[] arg) throws FileNotFoundException {
 		
-		Map<String, Integer> display = new HashMap<>();
-	 String path = "vendingmachine.csv";
-		File inputFile = new File(path);
-		
-		
-		String pathDisplay = "vendingmachine.csv";
-		File input = new File(path);
-
-	try(Scanner fileScanner = new Scanner(inputFile)) {
-		while(fileScanner.hasNextLine()) {
-			String line = fileScanner.nextLine();
-			
-			
-			String[] productDetails = line.split("\\|");
-			String locationName = "\n" + productDetails[0] + " " +  "\n" + productDetails[1];
-			display.put(locationName, count);
-		} 
-		return display;
+		createInventory();
+		MainMenu main = new MainMenu(inventoryMap, log);
+		main.run();
 	}
-	
-	}
-
-	public Map<String, Object> createInventory() throws FileNotFoundException {
-		
-	    Map<String, Object> inventoryMap = new HashMap<>();
-	    String path = "vendingmachine.csv";
-		File inputFile = new File(path);
+ 
+	public static void createInventory() throws FileNotFoundException  {
+		String path = "vendingmachine.csv";
+		File inputFile = new File(path);	
 	    
-	  try (Scanner myScanner = new Scanner(inputFile)) {
+	    
+	  try (Scanner fileScanner = new Scanner(inputFile)) {
 	
-	while(myScanner.hasNextLine()) {
-		String line = myScanner.nextLine();
-		//Splitting up each line of the input file
-		String[] productDetails = line.split("\\|");
+	while(fileScanner.hasNextLine()) {
+		String line = fileScanner.nextLine();
+				String[] info = line.split("\\|");
 		
-		//Display the location, item name, and item price to user
-		String productForDisplay = productDetails[0] + " " + productDetails[1] + " " + productDetails[2];
-				
-		System.out.println(productForDisplay);
-		//method to make map of inventory of products - create map first, then fill it up
-		
-	if(productDetails[3].equals("Chip")) {
-		
-		Product chipObject = new Product (productDetails[0], productDetails[2], count);
-								
-		inventoryMap.put(productDetails[0], chipObject);
 
-		}
-	
-	if(productDetails[3].equals("Candy")) {
-		Product candyObject = new Product(productDetails[0], productDetails[2], count);
-
-		inventoryMap.put(productDetails[0], candyObject);
-		}
-	
-	if(productDetails[3].equals("Drink")) {
-		Product drinkObject = new Product (productDetails[0], productDetails[2], count);
-	
-		inventoryMap.put(productDetails[0], drinkObject);
-		}
+		Product product = new Product(info);
+		inventoryMap.put(info[0], product);
 		
-	if(productDetails[3].equals("Gum")) {
-	   Product gumObject = new Product (productDetails[0], productDetails[2], count);
+	  }
 	
-		inventoryMap.put(productDetails[0], gumObject);
-	}
-		}
-								
-		return inventoryMap;
+	  }
+	
 	}
 	
-}
-	public void dispenseAuditReport() {
-		
-		
-		
-	}
+	
 	
 	
 	

@@ -3,88 +3,67 @@ package com.techelevator;
 public class Currency {
 
 	//instance variables
-	public int inputMoney;
-	public double quarter;
-	public double nickel;
-	public double dime;
-	public int totalInputMoney;
-	public double change;
+	private final int QUARTER = 25;
+	private final int DIME = 10;
+	private final int NICKEL = 5;
+	private int dollars;
+	private double change;
+	private double balance = 0.00;
+	private double fedMoney;
 	
 	
-	//Constructor
-	public Currency(int inputMoney, double quarter, double nickel, double dime, int totalInputMoney, double change) {
-		this.inputMoney = inputMoney;
-		this.quarter = 0;
-		this.nickel = 0;
-		this.dime = 0;
-		this.totalInputMoney = totalInputMoney;
-		this.change = change;
-	}
-	public Currency(int inputMoney) {
-		this.inputMoney = inputMoney;
+	
+	//Constructors
+	public Currency() {
+		
 	}
 	
-
-
+	
 	//Methods
-	public int feedMoney(int inputMoney) {		
+	public void formatChange() {
 		
-		totalInputMoney = 0;
+		dollars = (int) balance;
 		
-		if (inputMoney != 1 && inputMoney != 2 && inputMoney != 5 && inputMoney != 10) {
-			
-			return 0;
-
-		} totalInputMoney += inputMoney; 
-		return totalInputMoney;
-	}
-	
-	
-	
-	public void changeOut(int change) {
-		while(change >= 0.25) {
-			quarter += 1;
-			change -= 0.25;
-		}
-			
-		while(change >= 0.10) {
-			dime += 1;
-			change -= 0.10;
-		}
+		change = (double) (balance - dollars);
 		
-		while(change >= 0.05) {
-			nickel += 1;
-			change -= 0.5;
-		}
-		}
-	
-
-	public void transactionAndUpdatedBalance() {
-		//need to update balance with transaction
 		
 	}
 	
+	public String createChange() {
 		
+		int quarterAmount = dollars * 4;
+		int dimeAmount = 0;
+		int nickelAmount = 0;
+		
+		double changeAsDouble = change * 100.00;			// change value is decimal, multipling to make it whole numbers
+		
+		int cents = (int) Math.round(changeAsDouble);		//rounds the change to make whole change
+		
+		
+		quarterAmount += cents / QUARTER;					//The number of quarters
+		
+		int remainingDimesAndNickels = cents % QUARTER;		//How many dimes and nickels are remaining
+		
+		dimeAmount += remainingDimesAndNickels / DIME;
+		
+		int remainingNickels = remainingDimesAndNickels % DIME;
+		
+		nickelAmount += remainingNickels / NICKEL;
+		
+		return cents + " You receive " + quarterAmount + " quarter(s), " + dimeAmount + " dime(s), and " + nickelAmount + " nickels in change.";
+		
+	}
 	
-	public int getInputMoney() {
-		return inputMoney;
-	}
-
-	public int getTotalInputMoney() {
-		return totalInputMoney;
-	}
-
-	public double getQuarter() {
-		return quarter;
-	}
-
-	public double getNickel() {
-		return nickel;
-	}
-
-	public double getDime() {
-		return dime;
-	}
+	public void feedMoney(double moneyFed) {
 		
+		balance += moneyFed;
+		
+		fedMoney = moneyFed;
+		
+		//System.out.println(moneyFed + " " + getBalance());
+		
+	}
+	
+	//Getters
 	
 }
