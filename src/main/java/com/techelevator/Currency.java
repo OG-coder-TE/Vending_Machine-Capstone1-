@@ -73,12 +73,13 @@ public class Currency {
 		
 	}
 	
-	public void feedMoney(double moneyFed) {
+	public double feedMoney(double moneyFed) {
 		
 		balance += moneyFed;
 		
 		fedMoney = moneyFed;
 		
+		return moneyFed;
 		//System.out.println(moneyFed + " " + getBalance());
 		
 	}

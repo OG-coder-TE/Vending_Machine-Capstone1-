@@ -9,6 +9,13 @@ import java.util.Scanner;
 public class Machine {
 	
 	static Scanner input = new Scanner(System.in);
+<<<<<<< HEAD
+
+	public static void main(String[] args) throws FileNotFoundException {
+		Display myDisplay = new Display();
+		
+		myDisplay.getMainMenu();
+=======
 	
 	
 	public static void main(String[] args) throws FileNotFoundException {
@@ -22,6 +29,7 @@ public class Machine {
 		
 		System.out.println("Welcome to The Supreme Vending Machine!!!");
 		System.out.println();
+>>>>>>> 1e75147a3308c85518460d01dc5d8fdf88a333f5
 				
 		main.getMainMenu();
 		
