@@ -8,12 +8,15 @@ import java.text.DateFormat;
 import java.util.Calendar;
 
 public class Audit {
+	DateFormat Date = DateFormat.getDateInstance();
+	  Calendar cals = Calendar.getInstance();
+	  String currentDate = Date.format(cals.getTime());
 	
 	protected String transactionType;
 	protected String slot;
 	protected String name;
-	protected double amountStart;
-	protected double amountEnd;
+	protected double startingAmount;
+	protected double endingAmount;
 	
 	File audit = new File("Log.txt");
 	
@@ -23,18 +26,20 @@ public class Audit {
 		
 	}
 	
-	public Audit(String name, String slot, double amountStart, double amountEnd) {
-		this.name = name;
-		this.slot = slot;
-		this.amountStart = amountStart;
-		this.amountEnd = amountEnd;
+	public Audit(String transactionType, double startingAmount, double endingAmount) {
+		
+		this.startingAmount = startingAmount;
+		this.startingAmount = startingAmount;
+		this.endingAmount = endingAmount;
 		
 	}
 	
 	
-	public Audit(String transactionType, double amountStart, double amountEnd) throws IOException{
-		this.amountStart = amountStart;
-		this.amountEnd = amountEnd;
+	public Audit(String name, String slot, double startingAmount, double endingAmount) throws IOException {
+		this.name = name;
+		this.slot = slot;
+		this.startingAmount = startingAmount;
+		this.endingAmount = endingAmount;
 		
 		File audit = new File("Log.txt");
 		if(!audit.exists()) {
@@ -60,20 +65,20 @@ public class Audit {
 	}
 
 
-	public double getAmountStart() {
-		return amountStart;
+	public double getStartingAmount() {
+		return startingAmount;
 	}
 
-	public void setAmountStart(double amountStart) {
-		this.amountStart = amountStart;
+	public void setStartingAmount(double startingAmount) {
+		this.startingAmount = startingAmount;
 	}
 
-	public double getAmountEnd() {
-		return amountEnd;
+	public double getEndingAmount() {
+		return endingAmount;
 	}
 
-	public void setAmountEnd(double amountEnd) {
-		this.amountEnd = amountEnd;
+	public void setEndingAmount(double endingAmount) {
+		this.endingAmount = endingAmount;
 	}
 
 	
@@ -82,25 +87,20 @@ public class Audit {
 
   private void transactionDetails() throws IOException {
 
-  DateFormat Date = DateFormat.getDateInstance();
-  Calendar cals = Calendar.getInstance();
-  String currentDate = Date.format(cals.getTime());
   
   try(FileWriter fileWriter = new FileWriter("Log.txt", true);
 		  PrintWriter printWriter = new PrintWriter(fileWriter)) {
-		  	  printWriter.println (currentDate + " " + transactionType + "$" + amountStart + "$" + amountEnd);
+		  	  printWriter.println (currentDate + " " + transactionType + "$" + startingAmount + "$" + endingAmount);
 
 		  }
   }  
-	
-	
-	
-	
-	
-	
-	
-	}
+  
+  private void auditDispensing() throws IOException {
 
-
-
-
+	 try(FileWriter fileWriter = new FileWriter("Log.txt", true);
+		 PrintWriter printWriter = new PrintWriter(fileWriter)) {
+			 printWriter.println(currentDate + " " + name + " " + slot + "$" + startingAmount + "$" + endingAmount);
+		 }
+	 } 
+	 }
+  
