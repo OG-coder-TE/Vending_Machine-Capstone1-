@@ -11,8 +11,6 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class Audit {
-	Date dNow = new Date( );
-    SimpleDateFormat ft = new SimpleDateFormat ("E yyyy.MM.dd 'at' hh:mm:ss a zzz");
 	
 	protected String transactionType;
 	protected String slot;
@@ -26,7 +24,7 @@ public class Audit {
 
 	public Audit(String transactionType, double startingAmount, double endingAmount) throws IOException {
 		
-		this.startingAmount = startingAmount;
+		this.transactionType = transactionType;
 		this.startingAmount = startingAmount;
 		this.endingAmount = endingAmount;
 		
@@ -94,24 +92,28 @@ public class Audit {
 
 	
 
-
-
   private void transactionDetails() throws IOException {
 
+	  Date dNow = new Date( );
+	  SimpleDateFormat ft = new SimpleDateFormat ("E yyyy.MM.dd 'at' hh:mm:ss a zzz");
+		
   
   try(FileWriter fileWriter = new FileWriter("Log.txt", true);
 		  PrintWriter printWriter = new PrintWriter(fileWriter)) {
-		  	  printWriter.println (ft.format(dNow) + " "  + transactionType + "$" + startingAmount + "$" + endingAmount);
+		  	  printWriter.println (ft.format(dNow) + " "  + transactionType + " " +  "$" + startingAmount + " " + "$" + endingAmount);
 
 		  }
   }  
   
   private void auditDispensing() throws IOException {
+	  Date dNow = new Date( );
+	  SimpleDateFormat ft = new SimpleDateFormat ("E yyyy.MM.dd 'at' hh:mm:ss a zzz");
+		
 
 	 try(FileWriter fileWriter = new FileWriter("Log.txt", true);
 		 PrintWriter printWriter = new PrintWriter(fileWriter)) {
-			 printWriter.println(ft.format(dNow) + " " + name + " " + slot + "$" + startingAmount + "$" + endingAmount);
+			 printWriter.println(ft.format(dNow) + " " + name + " " + slot + " " + "$" + startingAmount + " " + "$" + endingAmount);
 		 }
 	 } 
-	 }
+ }
   
