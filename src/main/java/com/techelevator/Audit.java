@@ -9,33 +9,49 @@ import java.util.Calendar;
 
 public class Audit {
 	
-	protected String transaction;
+	protected String transactionType;
 	protected String slot;
 	protected String name;
 	protected double amountStart;
 	protected double amountEnd;
 	
-	File audit = new File("audit.txt");
+	File audit = new File("Log.txt");
 	
-	public Audit(double amountStart, double amountEnd) throws IOException{
+	
+	public Audit() {
+		
+		
+	}
+	
+	public Audit(String name, String slot, double amountStart, double amountEnd) {
+		this.name = name;
+		this.slot = slot;
 		this.amountStart = amountStart;
 		this.amountEnd = amountEnd;
 		
-		File audit = new File("audit.txt");
+	}
+	
+	
+	public Audit(String transactionType, double amountStart, double amountEnd) throws IOException{
+		this.amountStart = amountStart;
+		this.amountEnd = amountEnd;
+		
+		File audit = new File("Log.txt");
 		if(!audit.exists()) {
 			try {audit.createNewFile();
 			
 			}finally {
 		
 		transactionDetails();
-			}}
+			}
+		}
 	}
 
 
 	
 
-	public String getTransaction() {
-		return transaction;
+	public String getTransactionType() {
+		return transactionType;
 	}
 
 
@@ -61,7 +77,6 @@ public class Audit {
 	}
 
 	
-	
 
 
 
@@ -71,12 +86,20 @@ public class Audit {
   Calendar cals = Calendar.getInstance();
   String currentDate = Date.format(cals.getTime());
   
-  try(FileWriter fileWriter = new FileWriter("log.txt", true);
+  try(FileWriter fileWriter = new FileWriter("Log.txt", true);
 		  PrintWriter printWriter = new PrintWriter(fileWriter)) {
-		  	  printWriter.println (currentDate + " " + transaction + "$" + amountStart + "$" + amountEnd);
+		  	  printWriter.println (currentDate + " " + transactionType + "$" + amountStart + "$" + amountEnd);
 
 		  }
-  }  }
+  }  
+	
+	
+	
+	
+	
+	
+	
+	}
 
 
 
