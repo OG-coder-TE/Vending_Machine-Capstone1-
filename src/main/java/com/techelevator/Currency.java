@@ -15,18 +15,18 @@ public class Currency {
 	
 	
 	//Methods
-	
+		//This method provides change
 		public void giveChange() throws IOException {
-		
+		//changing currentBalance to into in order to work with whole numbers
 		int change = (int)(currentBalance * 100);
 		
-		int quarters = ((int)change/25);
+		int quarters = (change / 25);
 	    change = change % 25;
 	    
-	    int dimes = ((int)change/10);
+	    int dimes = (change / 10);
 	    change = change % 10;
 	    
-	    int nickels = ((int)change/5);
+	    int nickels = (change / 5);
 	    change = change % 5;
 	    
 	    Audit lineInAudit = new Audit("GIVE CHANGE: ", currentBalance, 0.00);
