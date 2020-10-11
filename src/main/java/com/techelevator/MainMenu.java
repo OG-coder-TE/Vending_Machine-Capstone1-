@@ -12,7 +12,6 @@ public class MainMenu {
 		
 		
 	//Instance Variables
-	protected List<Item> inventoryList = new ArrayList<>();
 	
 	
 	//Constructor
@@ -51,20 +50,18 @@ public class MainMenu {
 					
 					goodInput = true;
 					
-					PurchaseMenu purchaseMenuObject = new PurchaseMenu();
-					purchaseMenuObject.getPurchaseMenu();
+					Currency currencyObject = new Currency();
+					currencyObject.getPurchaseMenu();
 				}
 				else if(selection.equals("3")) {
 					
 					goodInput = true;
 
 					Vending_Machine vendingMachineObject = new Vending_Machine();
+				
 					vendingMachineObject.exitMessage();
 				}
-				else if(selection.equals("4")) {
-					
-					goodInput=true;
-				}
+				
 		}			
 	}
 	
@@ -73,7 +70,8 @@ public class MainMenu {
 		System.out.println();
 		System.out.println();
 
-		for(Item product : inventoryList) {
+		Vending_Machine vendingMachineObject = new Vending_Machine();
+		for(Item product : vendingMachineObject.getInventoryList()) {
 			System.out.println(product.getSlot() + " | " + product.getName() + "| $" + product.getPrice() + " | " + product.getType() + " | " + product.getCount());
 		}
 		System.out.println();

@@ -19,7 +19,6 @@ public class Vending_Machine  {
 	
 	
 	protected List<Item> inventoryList = new ArrayList<>();
-	protected double currentBalance = 0.00;
 	
 	//vending machine constructor
 	public Vending_Machine() {
@@ -82,13 +81,21 @@ public class Vending_Machine  {
 			}
 		}
 		catch(FileNotFoundException e) {
-			System.out.println("File Does Not Exist!");
+			System.out.println("!!! File Does Not Exist! !!!");
 			return false;
 		}
 		return true;
 
 	}
+
+
+
+	public List<Item> getInventoryList() {
+		return inventoryList;
+	}
 		
+	
+	
 	
 	
 	
