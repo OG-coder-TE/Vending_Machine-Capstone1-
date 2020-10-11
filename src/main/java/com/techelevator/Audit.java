@@ -21,11 +21,7 @@ public class Audit {
 	File audit = new File("Log.txt");
 	
 	
-	public Audit() {
-		
-		
-	}
-	
+
 	public Audit(String transactionType, double startingAmount, double endingAmount) throws IOException {
 		
 		this.startingAmount = startingAmount;
@@ -36,10 +32,12 @@ public class Audit {
 		if(!audit.exists()) {
 			try {audit.createNewFile();
 			
-			}finally {
-				transactionDetails();
+			} catch (IOException e) {
+				
 			}
 		}
+		transactionDetails();
+
 	}
 	
 	
@@ -53,11 +51,14 @@ public class Audit {
 		if(!audit.exists()) {
 			try {audit.createNewFile();
 			
-			}finally {
-		
-				auditDispensing();
+			} catch(IOException e) {
+				
 			}
+		
+			
 		}
+		auditDispensing();
+		
 	}
 
 
