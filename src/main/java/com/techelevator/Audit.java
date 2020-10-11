@@ -26,12 +26,20 @@ public class Audit {
 		
 	}
 	
-	public Audit(String transactionType, double startingAmount, double endingAmount) {
+	public Audit(String transactionType, double startingAmount, double endingAmount) throws IOException {
 		
 		this.startingAmount = startingAmount;
 		this.startingAmount = startingAmount;
 		this.endingAmount = endingAmount;
 		
+		File audit = new File("Log.txt");
+		if(!audit.exists()) {
+			try {audit.createNewFile();
+			
+			}finally {
+				transactionDetails();
+			}
+		}
 	}
 	
 	
@@ -47,7 +55,7 @@ public class Audit {
 			
 			}finally {
 		
-		transactionDetails();
+				auditDispensing();
 			}
 		}
 	}
