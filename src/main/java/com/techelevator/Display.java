@@ -2,6 +2,7 @@ package com.techelevator;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -10,8 +11,9 @@ public class Display {
 	
 	
 	
-	Currency money = new Currency(0);
+	Currency money = new Currency();
 	Inventory inventory = new Inventory();
+	int currentBalance = 0;
 	
 	
 	
@@ -30,7 +32,7 @@ public class Display {
 		String firstChoice = input.nextLine();
 		
 		if(firstChoice.equals("1")) {
-			Map<String, Integer> displayObject = inventory.createDisplayInventory();
+			ArrayList<String> displayObject = inventory.displayMachineItems();
 			System.out.println(displayObject);
 			System.out.println();
 			getMainMenu();
@@ -68,7 +70,7 @@ public class Display {
 		}
 		
 		if (purchaseMenu.equals("3")) {
-			getFinishTransaction();
+			money.createChange();
 		}
 	}
 	
@@ -77,18 +79,21 @@ public class Display {
 		System.out.println("How much money will you feed me?");
 			String moneyFeed = input.nextLine();
 			int intMoneyFeed =  Integer.parseInt(moneyFeed);
-			int totalInputMoney = money.feedMoney(intMoneyFeed);
-			totalInputMoney += intMoneyFeed;
-			System.out.println("Your total is " + totalInputMoney);
+			int totalInputMoney = (int)money.feedMoney(intMoneyFeed);
+			currentBalance += totalInputMoney;
+			System.out.println("Your total is " + currentBalance);
 			getPurchaseMenu();
 	}
 	
 	public void getSelectProduct() throws FileNotFoundException {
 		
 		Scanner input = new Scanner(System.in);
-		inventory.createInventory();
+//		inventory.createInventory();
 		System.out.println("What What would you like? Ex: A1");
 		String productChoice = input.nextLine();
+		if (inventory.createInventory().containsKey(productChoice)) {
+			System.out.println(inventory.createInventory());
+		}
 		getPurchaseMenu();
 	}
 	
