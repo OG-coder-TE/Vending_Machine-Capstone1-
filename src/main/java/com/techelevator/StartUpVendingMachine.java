@@ -6,15 +6,12 @@ public class StartUpVendingMachine {
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
 
-		Vending_Machine vendingMachineObject = new Vending_Machine();
 		
-		
-		vendingMachineObject.welcomeMessage();
-		
+		MainMenu mainMenuObject = new MainMenu();
 		
 		
 		
-		
+		mainMenuObject.getMainMenu();
 		
 		
 		

@@ -9,16 +9,6 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class PurchaseMenu {
-	
-	Scanner userInput = new Scanner(System.in);
-	
-	Vending_Machine vendingMachineObject = new Vending_Machine();
-	
-	MainMenu mainMenuObject = new MainMenu();
-	
-	Currency currencyObject = new Currency();
-	
-	Audit auditObject = new Audit();
 
 	//Instance Variables
 	protected double currentBalance = 0.00;
@@ -46,6 +36,8 @@ public class PurchaseMenu {
 			System.out.println("Current Balance: $" + currentBalance);
 			System.out.println();
 			System.out.println();
+			Scanner userInput = new Scanner(System.in);
+
 			String selection = userInput.nextLine();
 			
 				if(selection.equals("1")) {
@@ -59,8 +51,11 @@ public class PurchaseMenu {
 					goodInput = true;
 				}
 				else if(selection.equals("3")) {
+					Currency currencyObject = new Currency();
+
 					currencyObject.giveChange();
 					goodInput = true;
+					MainMenu mainMenuObject = new MainMenu();
 					mainMenuObject.getMainMenu();
 				}		
 			}
@@ -76,6 +71,8 @@ public class PurchaseMenu {
 			System.out.println("Current Balance: $" + currentBalance);
 			System.out.println();
 			System.out.println();
+			Scanner userInput = new Scanner(System.in);
+
 			String inputAmount = userInput.nextLine();
 			
 			//User inputs "6" to go back to product selection menu
@@ -90,6 +87,7 @@ public class PurchaseMenu {
 				Audit lineInAudit = new Audit("FEED MONEY: ", startingAmount, currentBalance);
 			}
 			else {
+				Vending_Machine vendingMachineObject = new Vending_Machine();
 				vendingMachineObject.incorrectInputMessage();
 			}
 		}
@@ -97,11 +95,13 @@ public class PurchaseMenu {
 	
 	
 	public void getSelectProduct() throws NumberFormatException, IOException {
+		MainMenu mainMenuObject = new MainMenu();
 		mainMenuObject.displayInventory();
 		System.out.println("Current Balance: $" + currentBalance);
 
 		System.out.println();
 		System.out.println("Please Enter Slot Location: ");
+		Scanner userInput = new Scanner(System.in);
 		String userSelection = userInput.nextLine().toUpperCase();
 		
 		boolean goodInput = false;
@@ -114,6 +114,8 @@ public class PurchaseMenu {
 					goodItemSelection(inventory);
 				}
 			}
+		
+			Vending_Machine vendingMachineObject = new Vending_Machine();
 		vendingMachineObject.incorrectInputMessage();
 		getSelectProduct();
 		}

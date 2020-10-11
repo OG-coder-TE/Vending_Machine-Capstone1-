@@ -17,9 +17,7 @@ import java.util.Scanner;
 
 public class Vending_Machine  {	
 	
-	MainMenu mainMenuObject = new MainMenu();
 	
-	Scanner userInput = new Scanner(System.in);
 	protected List<Item> inventoryList = new ArrayList<>();
 	protected double currentBalance = 0.00;
 	
@@ -35,6 +33,7 @@ public class Vending_Machine  {
 		System.out.println("== Welcome to Your New Favorite Vending Machine! ==");
 		System.out.println("==              By Umbrella Corp                 ==");
 		System.out.println();
+		MainMenu mainMenuObject = new MainMenu();
 		mainMenuObject.getMainMenu();
 	}
 		

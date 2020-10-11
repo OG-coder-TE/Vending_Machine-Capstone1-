@@ -9,20 +9,10 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class MainMenu {
-	
-	Scanner userInput = new Scanner(System.in);
-	
-	PurchaseMenu purchaseMenuObject = new PurchaseMenu();
-	
-	Vending_Machine vendingMachineObject = new Vending_Machine();
-
-	
-	
+		
+		
 	//Instance Variables
 	protected List<Item> inventoryList = new ArrayList<>();
-
-	
-	
 	
 	
 	//Constructor
@@ -36,31 +26,43 @@ public class MainMenu {
 	
 	public void getMainMenu() throws NumberFormatException, IOException {
 				
-		boolean goodInput = false;
 		System.out.println();
 		System.out.println("==  Welcome to the Main Menu  ==");
 		System.out.println();
 		
+		
+		boolean goodInput = false;
+
 		while(!goodInput) {
 			System.out.println("[1] Display Vending Machine Items");
 			System.out.println("[2] Purchase");
 			System.out.println("[3] Exit");
 			System.out.println();
+			Scanner userInput = new Scanner(System.in);
 			String selection = userInput.nextLine();
 			
 				if(selection.equals("1")) {
+					
 					displayInventory();
+					
 					goodInput = false;
 				}
 				else if(selection.equals("2")) {
+					
 					goodInput = true;
+					
+					PurchaseMenu purchaseMenuObject = new PurchaseMenu();
 					purchaseMenuObject.getPurchaseMenu();
 				}
 				else if(selection.equals("3")) {
+					
 					goodInput = true;
+
+					Vending_Machine vendingMachineObject = new Vending_Machine();
 					vendingMachineObject.exitMessage();
 				}
 				else if(selection.equals("4")) {
+					
 					goodInput=true;
 				}
 		}			
