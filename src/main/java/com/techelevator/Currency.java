@@ -104,7 +104,7 @@ public class Currency {
 					//When product is in stock - updates current balance, updates current inventory
 						double startingAmount = currentBalance;
 						currentBalance -= (inventory.getPrice());
-						inventory.dispenseProduct();					
+						inventory.dispenseProduct(5);					
 						
 						
 						//Log each time a product is dispensed

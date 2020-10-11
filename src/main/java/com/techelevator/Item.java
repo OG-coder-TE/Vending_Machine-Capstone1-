@@ -19,6 +19,12 @@ private double price;
 private String type;
 
 //Constructor
+
+public Item(int count) {
+	this.count = count;
+			
+}
+
 public Item(String slot, String name, double price, String type) {
 	this.slot = slot;
 	this.name = name;
@@ -28,7 +34,8 @@ public Item(String slot, String name, double price, String type) {
 
 
 //Methods
-public int dispenseProduct() {
+public int dispenseProduct(int count) {
+	
 		
 	count--;
 		
@@ -36,9 +43,11 @@ public int dispenseProduct() {
 		System.out.println(name + " $" + price);
 		
 		getMessage();
-		
 		return count;
+		
 }
+
+
 //Method for Subclasses
 public void getMessage() {
 	
