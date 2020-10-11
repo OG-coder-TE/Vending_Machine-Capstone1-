@@ -7,23 +7,23 @@ import java.util.Scanner;
 
 public class MainMenu {
 	
+	
 	private String userChoice = "";
 	private Scanner inputUser = new Scanner(System.in);
 	
-	private Map<String, Product> inventoryMap;
-	private File log;
+	Inventory inventoryObject = new Inventory();
+	Product productObject = new Product();
+	PurchaseMenu purchaseMenuObject = new PurchaseMenu();
 	
-	public MainMenu(Map<String, Product> data, File logFile) {
-		this.inventoryMap = data;
-		this.log = logFile;
+	public MainMenu() {
 	}
 
-	
-	
-	
+
+
+
 	//Methods
 	public void getMainMenu(){
-		
+			
 		System.out.println("(1) Display Vending Machine Item");
 		System.out.println("(2) Purchase");
 		System.out.println("(3) Exit");
@@ -31,12 +31,38 @@ public class MainMenu {
 		System.out.println("Please, choose what you would like to do!");
 		userChoice = inputUser.nextLine();
 		
+		if(userChoice.equals("1")) {
+			Map<String, Product> inventoryObject = Inventory.getInventoryMap();
+			System.out.println(inventoryObject);
+			System.out.println();
+			getMainMenu();
+		}
+			
+		if(userChoice.contentEquals("2")) {
+				
+				System.out.println();
+				System.out.println("Great! What's next?");
+				purchaseMenuObject.displayMenu();
 		
+			}
+		
+		if(userChoice.contentEquals("3")) {
+			System.out.println("Goodbye!");
+			System.exit(1);
+		}
+	}
 	
 	}
 
 	
 		
 		
+<<<<<<< HEAD
 	}
+=======
+	
+				
+	
+	
+>>>>>>> 1e75147a3308c85518460d01dc5d8fdf88a333f5
 	

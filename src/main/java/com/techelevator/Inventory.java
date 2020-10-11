@@ -15,7 +15,14 @@ public class Inventory {
 	
 	public ArrayList<String> displayMachineItems() throws FileNotFoundException {
 		
+<<<<<<< HEAD
 		ArrayList<String> machineItems = new ArrayList();
+=======
+		
+	}
+ 
+	public static void createInventory() throws FileNotFoundException  {
+>>>>>>> 1e75147a3308c85518460d01dc5d8fdf88a333f5
 		String path = "vendingmachine.csv";
 		File inputFile = new File(path);
 		
@@ -88,6 +95,7 @@ public class Inventory {
 			}
 		} return inventoryMap;
 	
+<<<<<<< HEAD
 	} 
 }
 //	public static Map <String, Product> inventoryMap = new TreeMap<String, Product>();
@@ -120,11 +128,14 @@ public class Inventory {
 //	  }
 //	
 //	}
+=======
+	}
+	//Getter
+	public static Map<String, Product> getInventoryMap() {
+		return inventoryMap;
+>>>>>>> 1e75147a3308c85518460d01dc5d8fdf88a333f5
 	
-	
-	
-	
-	
+	}
 	
 	
 	
