@@ -11,7 +11,11 @@ public class Machine {
 	static Scanner input = new Scanner(System.in);
 	
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FileNotFoundException {
+	
+		Inventory inventoryObject = new Inventory();
+		
+		
 		
 		MainMenu main = new MainMenu();
 
@@ -21,7 +25,7 @@ public class Machine {
 				
 		main.getMainMenu();
 		
-		
+		inventoryObject.createInventory().get(info[0]);
 		
 		
 		
