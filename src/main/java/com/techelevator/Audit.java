@@ -5,12 +5,14 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.Calendar;
+import java.util.Date;
 
 public class Audit {
-	DateFormat Date = DateFormat.getDateInstance();
-	  Calendar cals = Calendar.getInstance();
-	  String currentDate = Date.format(cals.getTime());
+	Date dNow = new Date( );
+    SimpleDateFormat ft = new SimpleDateFormat ("E yyyy.MM.dd 'at' hh:mm:ss a zzz");
 	
 	protected String transactionType;
 	protected String slot;
@@ -99,7 +101,7 @@ public class Audit {
   
   try(FileWriter fileWriter = new FileWriter("Log.txt", true);
 		  PrintWriter printWriter = new PrintWriter(fileWriter)) {
-		  	  printWriter.println (currentDate + " " + transactionType + "$" + startingAmount + "$" + endingAmount);
+		  	  printWriter.println (ft.format(dNow) + " "  + transactionType + "$" + startingAmount + "$" + endingAmount);
 
 		  }
   }  
@@ -108,7 +110,7 @@ public class Audit {
 
 	 try(FileWriter fileWriter = new FileWriter("Log.txt", true);
 		 PrintWriter printWriter = new PrintWriter(fileWriter)) {
-			 printWriter.println(currentDate + " " + name + " " + slot + "$" + startingAmount + "$" + endingAmount);
+			 printWriter.println(ft.format(dNow) + " " + name + " " + slot + "$" + startingAmount + "$" + endingAmount);
 		 }
 	 } 
 	 }
