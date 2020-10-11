@@ -11,8 +11,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class Audit {
-	Date dNow = new Date( );
-    SimpleDateFormat ft = new SimpleDateFormat ("E yyyy.MM.dd 'at' hh:mm:ss a zzz");
+	
 	
 	protected String transactionType;
 	protected String slot;
@@ -97,6 +96,9 @@ public class Audit {
 
 
   private void transactionDetails() throws IOException {
+	  
+	  Date dNow = new Date( );
+	    SimpleDateFormat ft = new SimpleDateFormat ("E yyyy.MM.dd 'at' hh:mm:ss a zzz");
 
   
   try(FileWriter fileWriter = new FileWriter("Log.txt", true);
@@ -107,6 +109,9 @@ public class Audit {
   }  
   
   private void auditDispensing() throws IOException {
+	  
+	  Date dNow = new Date( );
+	    SimpleDateFormat ft = new SimpleDateFormat ("E yyyy.MM.dd 'at' hh:mm:ss a zzz");
 
 	 try(FileWriter fileWriter = new FileWriter("Log.txt", true);
 		 PrintWriter printWriter = new PrintWriter(fileWriter)) {

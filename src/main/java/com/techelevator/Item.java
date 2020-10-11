@@ -34,7 +34,7 @@ public Item(String slot, String name, double price, String type) {
 
 
 //Methods
-public int dispenseProduct(int count) {
+public int dispenseProduct() {
 	
 		
 	count--;

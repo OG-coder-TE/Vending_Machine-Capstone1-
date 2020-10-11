@@ -52,13 +52,13 @@ public class Vending_Machine  {
 	
 	
 	public boolean restockInventory() {
-		File inventory = new File("vendingmachine.csv");
+		File file = new File("vendingmachine.csv");
 		
-		try(Scanner inventoryStream = new Scanner(inventory)){
+		try(Scanner inventoryLine = new Scanner(file)){
 			
-			while(inventoryStream.hasNextLine()) {
+			while(inventoryLine.hasNextLine()) {
 				
-				String line = inventoryStream.nextLine();
+				String line = inventoryLine.nextLine();
 				String[] pieces = line.split("\\|");
 				
 				String location = pieces[0];

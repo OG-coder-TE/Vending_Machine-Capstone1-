@@ -20,13 +20,13 @@ public class Currency {
 		
 		int change = (int)(currentBalance * 100);
 		
-		int quarters = ((int)change/25);
+		int quarters = (change / 25);
 	    change = change % 25;
 	    
-	    int dimes = ((int)change/10);
+	    int dimes = (change / 10);
 	    change = change % 10;
 	    
-	    int nickels = ((int)change/5);
+	    int nickels = (change / 5);
 	    change = change % 5;
 	    
 	    Audit lineInAudit = new Audit("GIVE CHANGE: ", currentBalance, 0.00);
@@ -78,10 +78,11 @@ public class Currency {
 		
 		//When there input item is valid
 		public void goodItemSelection(Item inventory) throws IOException {
+			
 				//When there is no product in stock
-				if(inventory.getCount() < 1) {
+				if(inventory.getCount() <= 0) {
 					System.out.println();
-					System.out.println(" Not enough product available!");
+					System.out.println("!!! Not enough product available! !!!");
 					System.out.println();
 					
 					//Takes back to select another product
@@ -104,7 +105,7 @@ public class Currency {
 					//When product is in stock - updates current balance, updates current inventory
 						double startingAmount = currentBalance;
 						currentBalance -= (inventory.getPrice());
-						inventory.dispenseProduct(5);					
+						inventory.dispenseProduct();					
 						
 						
 						//Log each time a product is dispensed
@@ -135,7 +136,8 @@ public class Currency {
 			
 			while(!goodInput) {
 				for(Item inventory : inventoryList) {
-					//if user enters a valid location
+					
+					//If slot input is correct
 					if(inventory.getSlot().equals(userSelection)) {
 						goodInput = true;
 						goodItemSelection(inventory);
@@ -186,12 +188,7 @@ public class Currency {
 					}		
 				}
 			}
-		
-		
-	//Getter
-//		public double getCurrentBalance() {
-//			return currentBalance;
-		}
+}
 	
 	
 	
