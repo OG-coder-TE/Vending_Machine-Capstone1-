@@ -25,7 +25,7 @@ public class Audit {
 
 	public Audit(String transactionType, double startingAmount, double endingAmount) throws IOException {
 		
-		this.startingAmount = startingAmount;
+		this.transactionType = transactionType;
 		this.startingAmount = startingAmount;
 		this.endingAmount = endingAmount;
 		
