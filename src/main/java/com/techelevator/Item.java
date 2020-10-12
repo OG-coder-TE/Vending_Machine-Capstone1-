@@ -20,11 +20,6 @@ private String type;
 
 //Constructor
 
-public Item(int count) {
-	this.count = count;
-			
-}
-
 public Item(String slot, String name, double price, String type) {
 	this.slot = slot;
 	this.name = name;
@@ -34,17 +29,16 @@ public Item(String slot, String name, double price, String type) {
 
 
 //Methods
-public int dispenseProduct() {
+public int dispenseProduct(int withdrawAmount) {
+	withdrawAmount = 1;	
 	
-		
-	count--;
+	count = count - withdrawAmount;
 		
 		
 		System.out.println(name + " $" + price);
 		
 		getMessage();
 		return count;
-		
 }
 
 

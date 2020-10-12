@@ -8,13 +8,13 @@ public class ItemTest {
 	
 	
 
-	@Test
-	
-	public void subtractTheCount() {
-		Item test = new Item(4);
-		int integer = test.dispenseProduct();
-	    Assert.assertEquals(3, integer);;
-		}
+//	@Test
+//	
+//	public void subtractTheCount() {
+//		Item test = new Item(4);
+//		int integer = test.dispenseProduct);
+//	    Assert.assertEquals(3, integer);;
+//		}
 	}
 
 

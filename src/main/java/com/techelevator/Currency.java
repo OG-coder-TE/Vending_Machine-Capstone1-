@@ -78,9 +78,10 @@ public class Currency {
 		
 		//When there input item is valid
 		public void goodItemSelection(Item inventory) throws IOException {
+			int withdrawAmount = 1;
 			
 				//When there is no product in stock
-				if(inventory.getCount() <= 0) {
+				if(inventory.getCount() < withdrawAmount) {
 					System.out.println();
 					System.out.println("!!! Not enough product available! !!!");
 					System.out.println();
@@ -99,13 +100,15 @@ public class Currency {
 				}	
 				
 				//When the current balance is equal to or more than price of product
-				else { 
+				else if (inventory.getCount() >= withdrawAmount){ 
 					
 
 					//When product is in stock - updates current balance, updates current inventory
+					
+						
 						double startingAmount = currentBalance;
 						currentBalance -= (inventory.getPrice());
-						inventory.dispenseProduct();					
+						inventory.dispenseProduct(withdrawAmount);					
 						
 						
 						//Log each time a product is dispensed

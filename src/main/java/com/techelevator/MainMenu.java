@@ -24,11 +24,14 @@ public class MainMenu {
 	//Methods
 	
 	public void getMainMenu() throws NumberFormatException, IOException {
-				
+		
 		System.out.println();
 		System.out.println("==  Welcome to the Main Menu  ==");
 		System.out.println();
 		
+		Vending_Machine vendingMachineObject = new Vending_Machine();
+		
+
 		
 		boolean goodInput = false;
 
@@ -56,8 +59,6 @@ public class MainMenu {
 				else if(selection.equals("3")) {
 					
 					goodInput = true;
-
-					Vending_Machine vendingMachineObject = new Vending_Machine();
 				
 					vendingMachineObject.exitMessage();
 				}

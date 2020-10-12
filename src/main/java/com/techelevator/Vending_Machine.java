@@ -65,6 +65,7 @@ public class Vending_Machine  {
 				String name = pieces[1];
 				double price = Double.parseDouble(pieces[2]);
 				String type = pieces[3];
+								
 				
 				if(type.toLowerCase().equals("chip")) {
 					this.inventoryList.add(new Chip(location, name, price, type));
