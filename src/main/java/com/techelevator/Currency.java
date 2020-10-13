@@ -8,7 +8,7 @@ public class Currency {
 
 	
 	//Instance Variables
-	protected double currentBalance = 0.00;
+	private double currentBalance = 0.00;
 
 	
 	//Constructor
@@ -39,6 +39,7 @@ public class Currency {
 		public void feedMoney() throws NumberFormatException, IOException {
 			
 			boolean finish = false;
+			
 			while(!finish) {
 				System.out.println();
 				System.out.println("== Input 6 to Go Back And Select Product ==");
@@ -58,9 +59,9 @@ public class Currency {
 					finish = true;
 					getSelectProduct();
 				}
-
+				
+				//Logs the transaction for when money is fed to the Log.txt file
 				else if(inputAmount.equals("1") || inputAmount.equals("2") || inputAmount.equals("5") || inputAmount.equals("10")) {
-					
 					
 					
 					double startingAmount = currentBalance;
@@ -68,6 +69,7 @@ public class Currency {
 					
 					Audit lineInAudit = new Audit("FEED MONEY: ", startingAmount, currentBalance);
 				}
+				//If incorrect input is given
 				else {
 					Vending_Machine vendingMachineObject = new Vending_Machine();
 					vendingMachineObject.incorrectInputMessage();
@@ -99,13 +101,12 @@ public class Currency {
 					getPurchaseMenu();
 				}	
 				
-				//When the current balance is equal to or more than price of product
-				else if (inventory.getCount() >= withdrawAmount){ 
+				//When the current balance is equal to or more than price of product 
+				//AND there is enough product
+				else if (inventory.getCount() >= withdrawAmount && currentBalance >= (inventory.getPrice())){ 
 					
 
 					//When product is in stock - updates current balance, updates current inventory
-					
-						
 						double startingAmount = currentBalance;
 						currentBalance -= (inventory.getPrice());
 						inventory.dispenseProduct(withdrawAmount);					
@@ -122,10 +123,12 @@ public class Currency {
 		
 		public void getSelectProduct() throws NumberFormatException, IOException {
 
+			
 			MainMenu mainMenuObject = new MainMenu();
 			mainMenuObject.displayInventory();
 			System.out.println("Current Balance: $" + currentBalance);
-
+			
+			//User enters slot location
 			System.out.println();
 			System.out.println("Please Enter Slot Location: ");
 			Scanner userInput = new Scanner(System.in);
@@ -136,7 +139,7 @@ public class Currency {
 			Vending_Machine vendingMachineObject = new Vending_Machine();
 			List<Item> inventoryList = vendingMachineObject.getInventoryList();
 			
-			
+			//While loop is created to get item from inventory
 			while(!goodInput) {
 				for(Item inventory : inventoryList) {
 					
@@ -146,12 +149,12 @@ public class Currency {
 						goodItemSelection(inventory);
 					}
 				}
-			
+			//If user input is incorrect
 			vendingMachineObject.incorrectInputMessage();
 			getSelectProduct();
 			}
 		}
-		
+		//Method for purchase menu
 		public void getPurchaseMenu() throws NumberFormatException, IOException {
 			boolean goodInput = false;
 			System.out.println();
@@ -174,15 +177,17 @@ public class Currency {
 				
 					if(selection.equals("1")) {
 						
-						//feed money
+						//User inputs "1" and taken to feed money method
 						goodInput = true;
 						feedMoney();
 					}
+					//User inputs "2" and taken to select product
 					else if(selection.equals("2")) {
 						//select product
 						getSelectProduct();
 						goodInput = true;
 					}
+					//User enters "3" and taken to main menu
 					else if(selection.equals("3")) {
 						giveChange();
 						goodInput = true;

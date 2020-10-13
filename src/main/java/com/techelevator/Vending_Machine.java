@@ -38,7 +38,7 @@ public class Vending_Machine  {
 		
 	public void exitMessage() {
 		System.out.println();
-		System.out.println("== Have a good day and remember to wear a mask and wash your hands! ==");
+		System.out.println("== Have a good day, and remember to wear a mask and wash your hands! ==");
 		System.out.println();
 
 		System.exit(1);

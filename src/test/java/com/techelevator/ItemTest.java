@@ -11,8 +11,8 @@ public class ItemTest {
 //	@Test
 //	
 //	public void subtractTheCount() {
-//		Item test = new Item(4);
-//		int integer = test.dispenseProduct);
+//		Item test = new Item();
+//		int integer = test.dispenseProduct(1));
 //	    Assert.assertEquals(3, integer);;
 //		}
 	}

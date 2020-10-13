@@ -25,6 +25,7 @@ public class MainMenu {
 	
 	public void getMainMenu() throws NumberFormatException, IOException {
 		
+		//Welcome message
 		System.out.println();
 		System.out.println("==  Welcome to the Main Menu  ==");
 		System.out.println();
@@ -66,7 +67,7 @@ public class MainMenu {
 		}			
 	}
 	
-	
+	//method for when user inputs "1" and displays current inventory
 	public void displayInventory() {
 		System.out.println();
 		System.out.println();
