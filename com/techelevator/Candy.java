@@ -15,4 +15,3 @@ public class Candy extends Item {
 		
 	}
 }
-
